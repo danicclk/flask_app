@@ -1,5 +1,9 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+# from flask.ext.wtf import Form
+# from wtforms import StringField, SubmitField
+# from wtforms.validators import Required
+
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -8,10 +12,6 @@ bootstrap = Bootstrap(app)
 @app.route('/')
 def index():
     return render_template('about.html')
-
-# @app.route('/about')
-# def about():
-#     return render_template('about.html')
 
 
 @app.route('/concentrations')
@@ -22,6 +22,11 @@ def concentrations():
 @app.route('/resources')
 def resources():
     return render_template('resources.html')
+
+
+# class NameForm(Form):
+#     name = StringField('What is your name?', validators=[Required()])
+#     submit = SubmitField('Submit')
 
 
 @app.errorhandler(404)
